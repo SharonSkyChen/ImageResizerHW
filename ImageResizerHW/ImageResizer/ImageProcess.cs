@@ -41,7 +41,6 @@ namespace ImageResizer
             var allFiles = FindImages(sourcePath);
 
             var tasks = new Task<string>[allFiles?.Count ?? 0];
-
             int tNum = 0;
 
             foreach (var filePath in allFiles)
@@ -53,6 +52,13 @@ namespace ImageResizer
             return Task.WhenAll(tasks);
         }
 
+        /// <summary>
+        /// 圖片縮放method
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="destPath"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
         private string ResizeImage(string filePath, string destPath, double scale)
         {
             try
